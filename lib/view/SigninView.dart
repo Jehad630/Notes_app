@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
 import 'package:new_notes_app/view/SignUpView.dart';
 import 'package:new_notes_app/widget/ButtonWidget.dart';
@@ -56,10 +57,16 @@ class _SignInViewState extends State<SignInView> {
                 Navigator.pushNamed(context, NotesView().id, arguments: email);
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'user-not-found') {
-                  print('No user found for that email.');
+                  ShowSnackBar(context, "No user found for that email.");
                 } else if (e.code == 'wrong-password') {
-                  print('Wrong password provided for that user.');
+                  ShowSnackBar(
+                    context,
+                    "Wrong password provided for that user.",
+                  );
                 }
+              } catch (e) {
+                ShowSnackBar(context, e.toString());
+                print(e);
               }
             },
           ),
