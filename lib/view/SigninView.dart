@@ -54,6 +54,7 @@ class _SignInViewState extends State<SignInView> {
             onTap: () async {
               try {
                 SignIn();
+                ShowSnackBar(context, "Login Successful");
                 Navigator.pushNamed(context, NotesView().id, arguments: email);
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'user-not-found') {

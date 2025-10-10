@@ -54,6 +54,7 @@ class _SigninviewState extends State<SignUpView> {
             onTap: () async {
               try {
                 await SignUpUser();
+                ShowSnackBar(context, "Account created successfully! ");
                 Navigator.pushNamed(context, NotesView().id, arguments: email);
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'weak-password') {
