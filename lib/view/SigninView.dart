@@ -22,7 +22,7 @@ class _SignInViewState extends State<SignInView> {
           Image.asset("assets/notes.png", height: 150, width: 200),
           SizedBox(height: 20),
           Text(
-            "Notes App   ",
+            "Notes App",
             style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
@@ -50,7 +50,7 @@ class _SignInViewState extends State<SignInView> {
             color: Color(0xFF4D5A68),
             text: "Sign in",
             onTap: () {
-              Navigator.pushNamed(context, NotesView().id,arguments: email);
+              Navigator.pushNamed(context, NotesView().id, arguments: email);
             },
           ),
           Row(

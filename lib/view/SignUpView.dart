@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
 import 'package:new_notes_app/view/SignInView.dart';
@@ -49,8 +50,20 @@ class _SigninviewState extends State<SignUpView> {
           ButtonWidget(
             color: Color(0xFF4D5A68),
             text: "Sign Up",
-            onTap: () {
-              Navigator.pushNamed(context, NotesView().id,arguments: email);
+            onTap: () async {
+              try {
+                await SignUp();
+                Navigator.pushNamed(context, NotesView().id, arguments: email);
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'weak-password') {
+                
+                  print('The password provided is too weak.');
+                } else if (e.code == 'email-already-in-use') {
+                  print('The account already exists for that email.');
+                }
+              } catch (e) {
+                print(e);
+              }
             },
           ),
           Row(
@@ -71,5 +84,10 @@ class _SigninviewState extends State<SignUpView> {
         ],
       ),
     );
+  }
+
+  Future<void> SignUp() async {
+    UserCredential user = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email!, password: password!);
   }
 }
