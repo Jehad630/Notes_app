@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
+import 'package:new_notes_app/view/SigninView.dart';
 
 void main() {
   runApp(const NotesApp());
@@ -10,6 +11,15 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: ThemeData.dark(), home: const NotesView());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+      // home: const NotesView(),
+      initialRoute: "Signinview",
+      routes: {
+        "NotesView": (context) => const NotesView(),
+        "Signinview": (context) => const Signinview(),
+      },
+    );
   }
 }
