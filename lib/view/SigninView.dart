@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_notes_app/widget/TextField.dart';
 
 class Signinview extends StatelessWidget {
   const Signinview({super.key});
@@ -17,11 +18,11 @@ class Signinview extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           Text(
-            " Sign in",
+            "  Sign in",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
-          TextField(),
-          TextField(),
+          CustomTextfield(hint: "email", obscureText: false),
+          CustomTextfield(hint: "Password", obscureText: true),
         ],
       ),
     );
