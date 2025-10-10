@@ -52,11 +52,10 @@ class _SigninviewState extends State<SignUpView> {
             text: "Sign Up",
             onTap: () async {
               try {
-                await SignUp();
+                await SignUpUser();
                 Navigator.pushNamed(context, NotesView().id, arguments: email);
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'weak-password') {
-                
                   print('The password provided is too weak.');
                 } else if (e.code == 'email-already-in-use') {
                   print('The account already exists for that email.');
@@ -86,7 +85,7 @@ class _SigninviewState extends State<SignUpView> {
     );
   }
 
-  Future<void> SignUp() async {
+  Future<void> SignUpUser() async {
     UserCredential user = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email!, password: password!);
   }

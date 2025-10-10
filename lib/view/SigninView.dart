@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
 import 'package:new_notes_app/view/SignUpView.dart';
@@ -49,8 +50,17 @@ class _SignInViewState extends State<SignInView> {
           ButtonWidget(
             color: Color(0xFF4D5A68),
             text: "Sign in",
-            onTap: () {
-              Navigator.pushNamed(context, NotesView().id, arguments: email);
+            onTap: () async {
+              try {
+                SignIn();
+                Navigator.pushNamed(context, NotesView().id, arguments: email);
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'user-not-found') {
+                  print('No user found for that email.');
+                } else if (e.code == 'wrong-password') {
+                  print('Wrong password provided for that user.');
+                }
+              }
             },
           ),
           Row(
@@ -71,5 +81,10 @@ class _SignInViewState extends State<SignInView> {
         ],
       ),
     );
+  }
+
+  Future<void> SignIn() async {
+    UserCredential user = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email!, password: password!);
   }
 }

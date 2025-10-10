@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:new_notes_app/firebase_options.dart';
+import 'package:new_notes_app/services/firebase_options.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
 import 'package:new_notes_app/view/SignUpView.dart';
 import 'package:new_notes_app/view/SignInView.dart';
