@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:new_notes_app/view/Notes_view.dart';
+import 'package:new_notes_app/widget/ButtonWidget.dart';
 import 'package:new_notes_app/widget/TextField.dart';
 
 class Signinview extends StatelessWidget {
   const Signinview({super.key});
+
+  final String id = "Signinview";
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +27,13 @@ class Signinview extends StatelessWidget {
           ),
           CustomTextfield(hint: "email", obscureText: false),
           CustomTextfield(hint: "Password", obscureText: true),
+          ButtonWidget(
+            color: Color(0xFFD36836),
+            text: "Sign in",
+            onTap: () {
+              Navigator.pushNamed(context, NotesView().id);
+            },
+          ),
         ],
       ),
     );
