@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
-import 'package:new_notes_app/view/SigninView.dart';
+import 'package:new_notes_app/view/SignUpView.dart';
+import 'package:new_notes_app/view/SignInView.dart';
 
 void main() {
   runApp(const NotesApp());
@@ -14,11 +15,12 @@ class NotesApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      // home: const NotesView(),
-      initialRoute: "Signinview",
+      
+      initialRoute: SignInView().id,
       routes: {
         NotesView().id: (context) => const NotesView(),
-        Signinview().id: (context) => const Signinview(),
+        SignInView().id: (context) => const SignInView(),
+        SignUpView().id: (context) => const SignUpView(),
       },
     );
   }

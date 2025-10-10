@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
-import 'package:new_notes_app/view/SignUpView.dart';
+import 'package:new_notes_app/view/SignInView.dart';
 import 'package:new_notes_app/widget/ButtonWidget.dart';
 import 'package:new_notes_app/widget/TextField.dart';
 
-class SignInView extends StatefulWidget {
-  const SignInView({super.key});
-  final String id = "SignInView";
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
+  final String id = "SignUpView";
   @override
-  State<SignInView> createState() => _SignInViewState();
+  State<SignUpView> createState() => _SigninviewState();
 }
 
-class _SignInViewState extends State<SignInView> {
+class _SigninviewState extends State<SignUpView> {
   String? email, password;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class _SignInViewState extends State<SignInView> {
           ),
           SizedBox(height: 70),
           Text(
-            "  Sign in",
+            "  Sign Up",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
           CustomTextfield(
@@ -48,7 +48,7 @@ class _SignInViewState extends State<SignInView> {
           SizedBox(height: 20),
           ButtonWidget(
             color: Color(0xFF4D5A68),
-            text: "Sign in",
+            text: "Sign Up",
             onTap: () {
               Navigator.pushNamed(context, NotesView().id,arguments: email);
             },
@@ -56,13 +56,13 @@ class _SignInViewState extends State<SignInView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Don't have an account?"),
+              Text("have an account?"),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, SignUpView().id);
+                  Navigator.pushNamed(context, SignInView().id);
                 },
                 child: Text(
-                  "Sign up",
+                  "Sign in",
                   style: TextStyle(color: Color(0xFFFFCA42), fontSize: 16),
                 ),
               ),
