@@ -53,7 +53,7 @@ class _SignInViewState extends State<SignInView> {
             text: "Sign in",
             onTap: () async {
               try {
-                SignIn();
+                signIn();
                 ShowSnackBar(context, "Login Successful");
                 Navigator.pushNamed(context, NotesView().id, arguments: email);
               } on FirebaseAuthException catch (e) {
@@ -91,8 +91,8 @@ class _SignInViewState extends State<SignInView> {
     );
   }
 
-  Future<void> SignIn() async {
-    UserCredential user = await FirebaseAuth.instance
+  Future<void> signIn() async {
+    await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email!, password: password!);
   }
 }
