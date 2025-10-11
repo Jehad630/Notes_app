@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
+import 'package:new_notes_app/view/NotesListView.dart';
 import 'package:new_notes_app/view/SignInView.dart';
-import 'package:new_notes_app/widget/NoteItem.dart';
+
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
@@ -10,7 +11,6 @@ class NotesViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         title: Text("Notes App"),
         actions: [
@@ -29,13 +29,11 @@ class NotesViewBody extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          children: [
-            NoteItem(),
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(child: NotesListView()),
+          //FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+        ],
       ),
     );
   }
