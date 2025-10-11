@@ -18,7 +18,7 @@ class AddNoteWidet extends StatelessWidget {
             ),
           ),
           CustomTextfield(hint: "title", obscureText: false),
-          CustomTextfield(hint: "content", obscureText: false, ),
+          CustomTextfield(hint: "content", obscureText: false,maxLines: 5, ),
           ButtonWidget(
             text: "Add",
             color: Color(0xffB12E65),

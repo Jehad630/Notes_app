@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
 class CustomTextfield extends StatelessWidget {
-   CustomTextfield({
+  CustomTextfield({
     super.key,
     required this.hint,
     required this.obscureText,
     this.onChanged,
+    this.maxLines,
   });
 
   final String hint;
   final bool obscureText;
   Function(String)? onChanged;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        maxLines: maxLines,
         validator: (data) {
           if (data!.isEmpty) {
             return "filed is requierd";
