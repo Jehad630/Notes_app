@@ -1,7 +1,6 @@
-
 class NoteModel {
   final String title;
-  final String content; 
+  final String content;
   final String date;
   final int color;
   NoteModel({

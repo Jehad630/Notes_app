@@ -8,7 +8,10 @@ import 'package:new_notes_app/view/SignInView.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //Firebase initialization
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  //Hive initialization
 
   runApp(const NotesApp());
 }
@@ -27,7 +30,7 @@ class NotesApp extends StatelessWidget {
         NotesView().id: (context) => const NotesView(),
         SignInView().id: (context) => const SignInView(),
         SignUpView().id: (context) => const SignUpView(),
-        NotesViewBody().id: (context) => const NotesViewBody(),
+        
       },
     );
   }
