@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/SignInView.dart';
+import 'package:new_notes_app/widget/NoteItem.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
@@ -28,7 +29,14 @@ class NotesViewBody extends StatelessWidget {
           ),
         ],
       ),
-      
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        child: Column(
+          children: [
+            NoteItem(),
+          ],
+        ),
+      ),
     );
   }
 }
