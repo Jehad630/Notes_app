@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/NotesViewBody.dart';
 import 'package:new_notes_app/view/SigninView.dart';
+import 'package:new_notes_app/widget/AddNoteWidet.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -11,7 +12,16 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        backgroundColor: Color(0xffB12E65),
+        foregroundColor: Colors.black,
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return AddNoteWidet();
+            },
+          );
+        },
         child: Icon(Icons.add),
       ),
       body: const NotesViewBody(),

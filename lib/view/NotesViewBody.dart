@@ -32,7 +32,7 @@ class NotesViewBody extends StatelessWidget {
       body: Column(
         children: [
           Expanded(child: NotesListView()),
-          //FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+          
         ],
       ),
     );
