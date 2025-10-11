@@ -9,22 +9,20 @@ class AddNoteWidet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12.0),
-      child: Column(
-        children: [
-          Center(
-            child: Text(
-              "Add Note",
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text(
+              "Note",
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-          ),
-          CustomTextfield(hint: "title", obscureText: false),
-          CustomTextfield(hint: "content", obscureText: false,maxLines: 5, ),
-          ButtonWidget(
-            text: "Add",
-            color: Color(0xffB12E65),
-           
-          ),
-        ],
+            CustomTextfield(hint: "title", obscureText: false),
+            CustomTextfield(hint: "content", obscureText: false, maxLines: 5),
+            SizedBox(height: 120),
+            ButtonWidget(text: "Add Note", color: Color(0xffB12E65)),
+          ],
+        ),
       ),
     );
   }
