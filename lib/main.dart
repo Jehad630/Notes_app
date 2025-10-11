@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/services/firebase_options.dart';
+import 'package:new_notes_app/view/NotesViewBody.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
 import 'package:new_notes_app/view/SignUpView.dart';
 import 'package:new_notes_app/view/SignInView.dart';
@@ -21,11 +22,12 @@ class NotesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
 
-      initialRoute: NotesView().id,
+      initialRoute: NotesViewBody().id,
       routes: {
         NotesView().id: (context) => const NotesView(),
         SignInView().id: (context) => const SignInView(),
         SignUpView().id: (context) => const SignUpView(),
+        NotesViewBody().id: (context) => const NotesViewBody(),
       },
     );
   }

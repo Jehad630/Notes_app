@@ -8,21 +8,6 @@ class NotesView extends StatelessWidget {
   final String id = "NotesView";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Notes App"),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(
-            onPressed: () async {
-              await FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, SignInView().id);
-              ShowSnackBar(context, "Logged out successfully");
-            },
-            icon: Icon(Icons.logout),
-          ),
-        ],
-      ),
-    );
+    return Scaffold();
   }
 }
