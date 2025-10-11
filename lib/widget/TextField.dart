@@ -19,7 +19,9 @@ class CustomTextfield extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
-        maxLines: maxLines,
+        maxLines: maxLines == null 
+        ? 1 
+        : maxLines,
         validator: (data) {
           if (data!.isEmpty) {
             return "filed is requierd";
