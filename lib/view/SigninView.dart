@@ -4,7 +4,8 @@ import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
 import 'package:new_notes_app/view/SignUpView.dart';
 import 'package:new_notes_app/widget/ButtonWidget.dart';
-import 'package:new_notes_app/widget/TextField.dart';
+import 'package:new_notes_app/widget/CustomTextfield.dart';
+import 'package:new_notes_app/widget/CustomTextfieldSign.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -33,14 +34,14 @@ class _SignInViewState extends State<SignInView> {
             "  Sign in",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
-          CustomTextfield(
+          CustomTextfieldSign(
             hint: "email",
             obscureText: false,
             onChanged: (data) {
               email = data;
             },
           ),
-          CustomTextfield(
+          CustomTextfieldSign(
             hint: "Password",
             obscureText: true,
             onChanged: (data) {
