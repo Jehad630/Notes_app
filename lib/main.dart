@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/services/constants.dart';
 import 'package:new_notes_app/services/firebase_options.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
@@ -16,6 +17,8 @@ void main() async {
   await Hive.initFlutter();
   // making object box
   await Hive.openBox(kNotesBox);
+  //the way to storage the data using the genrated adapter for the model 
+  Hive.registerAdapter(NoteModelAdapter());
 
   runApp(const NotesApp());
 }
