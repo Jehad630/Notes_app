@@ -6,17 +6,20 @@ class CustomTextfieldSign extends StatelessWidget {
     required this.hint,
     required this.obscureText,
     this.onChanged,
+    
   });
 
   final String hint;
   final bool obscureText;
   Function(String)? onChanged;
+  
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        
         validator: (data) {
           if (data!.isEmpty) {
             return "filed is requierd";
@@ -41,7 +44,7 @@ class CustomTextfieldSign extends StatelessWidget {
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Color(0xFFB12E65), width: 3),
+            borderSide: BorderSide(color: Colors.red, width: 3),
           ),
         ),
       ),
