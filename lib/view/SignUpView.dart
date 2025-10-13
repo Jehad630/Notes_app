@@ -4,7 +4,6 @@ import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
 import 'package:new_notes_app/view/SignInView.dart';
 import 'package:new_notes_app/widget/ButtonWidget.dart';
-import 'package:new_notes_app/widget/CustomTextfield.dart';
 import 'package:new_notes_app/widget/CustomTextfieldSign.dart';
 
 class SignUpView extends StatefulWidget {

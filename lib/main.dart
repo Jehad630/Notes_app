@@ -13,18 +13,22 @@ import 'package:new_notes_app/view/SignInView.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   //Firebase initialization
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   //Hive initialization
   await Hive.initFlutter();
 
+  //Whenever any Bloc or Cubit changes state, emits an event, or throws an error — run my custom logic
+  // its like checking if there errrors and tell you about it
   Bloc.observer = SimpleBlocObserver();
+
+  //the way to storage the data using the genrated adapter for the model
+  Hive.registerAdapter(NoteModelAdapter());
 
   // making object box
   await Hive.openBox(kNotesBox);
-  //the way to storage the data using the genrated adapter for the model 
-  Hive.registerAdapter(NoteModelAdapter());
 
   runApp(const NotesApp());
 }
@@ -35,21 +39,16 @@ class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => NotesCubit(),
-        ),
-      ],
+      providers: [BlocProvider(create: (context) => NotesCubit())],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(brightness: Brightness.dark,fontFamily: "Poppins"), 
-      
+        theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
+
         initialRoute: NotesView().id,
         routes: {
           NotesView().id: (context) => const NotesView(),
           SignInView().id: (context) => const SignInView(),
           SignUpView().id: (context) => const SignUpView(),
-          
         },
       ),
     );

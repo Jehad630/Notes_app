@@ -6,28 +6,26 @@ import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/widget/AddNoteForm.dart';
 
 class AddNoteWidet extends StatelessWidget {
- const AddNoteWidet({super.key});
+  const AddNoteWidet({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12.0),
-      child: SingleChildScrollView(
-        child: BlocConsumer<NotesCubit, NotesState>(
-          listener: (context, state) {
-            if (state is NotesFailure) {
-              ShowSnackBar(context, "failed to add note ${state.errMessage}");
-            } else if (state is NotesSuccess) {
-              Navigator.pop(context);
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is NotesLoading ? true : false,
-              child: const AddNoteForm(),
-            );
-          },
-        ),
+      child: BlocConsumer<NotesCubit, NotesState>(
+        listener: (context, state) {
+          if (state is NotesFailure) {
+            ShowSnackBar(context, "failed to add note ${state.errMessage}");
+          } else if (state is NotesSuccess) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+            inAsyncCall: state is NotesLoading ? true : false,
+            child: SingleChildScrollView(child: const AddNoteForm()),
+          );
+        },
       ),
     );
   }
