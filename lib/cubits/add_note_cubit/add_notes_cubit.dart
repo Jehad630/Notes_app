@@ -4,20 +4,20 @@ import 'package:hive/hive.dart';
 import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/services/constants.dart';
 
-part 'notes_state.dart';
+part 'add_notes_state.dart';
 
 class AddNotesCubit extends Cubit<AddNotesState> {
-  AddNotesCubit() : super(NotesInitial());
+  AddNotesCubit() : super(AddNotesInitial());
 
   addNote(NoteModel note) async {
-    emit(NotesLoading());
+    emit(AddNotesLoading());
 
     try {
       var notesbox = Hive.box(kNotesBox);
       await notesbox.add(note);
-      emit(NotesSuccess());
+      emit(AddNotesSuccess());
     } catch (e) {
-     emit(NotesFailure(e.toString())) ;
+     emit(AddNotesFailure(e.toString())) ;
     }
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:new_notes_app/cubits/add_note_cubit/notes_cubit.dart';
+import 'package:new_notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/widget/AddNoteWidgets/AddNoteForm.dart';
 
@@ -13,10 +13,10 @@ class AddNoteWidet extends StatelessWidget {
       create: (context) => AddNotesCubit(),
       child: BlocConsumer<AddNotesCubit, AddNotesState>(
         listener: (context, state) {
-          if (state is NotesFailure) {
+          if (state is AddNotesFailure) {
             ShowSnackBar(context, "failed to add note ${state.errMessage}");
           }
-          if (state is NotesSuccess) {
+          if (state is AddNotesSuccess) {
             Navigator.pop(context);
           }
         },
@@ -25,7 +25,7 @@ class AddNoteWidet extends StatelessWidget {
           return AbsorbPointer(
             // if it loading will be true and the user can't interact with the form
             // if it not loading will be false and the user can interact with the form
-            absorbing: state is NotesLoading ? true : false,
+            absorbing: state is AddNotesLoading ? true : false,
 
             child: Padding(
               padding: EdgeInsets.only(

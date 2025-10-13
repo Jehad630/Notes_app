@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:new_notes_app/cubits/add_note_cubit/notes_cubit.dart';
+import 'package:new_notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/ButtonWidget.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfield.dart';
@@ -46,7 +46,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
               return CustomButtonWidget(
-                isLoading: state is NotesLoading ? true : false,
+                isLoading: state is AddNotesLoading ? true : false,
                 text: "Add Note",
                 color: Color(0xffB12E65),
                 onTap: () {
