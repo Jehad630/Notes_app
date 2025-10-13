@@ -20,7 +20,6 @@ class ButtonWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
         child: Container(
           height: 50,
-          //width: width,
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(8),

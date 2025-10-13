@@ -14,7 +14,7 @@ class AddNoteWidet extends StatelessWidget {
       create: (context) => AddNotesCubit(),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0),
-        child: BlocConsumer<AddNotesCubit, NotesState>(
+        child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state) {
             if (state is NotesFailure) {
               ShowSnackBar(context, "failed to add note ${state.errMessage}");
