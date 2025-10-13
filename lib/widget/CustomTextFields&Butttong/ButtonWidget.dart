@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-class ButtonWidget extends StatelessWidget {
-  ButtonWidget({
+class CustomButtonWidget extends StatelessWidget {
+  CustomButtonWidget({
     super.key,
     required this.color,
     required this.text,
     this.onTap,
+    this.isLoading = false,
   });
 
   final Color color;
   final String text;
   VoidCallback? onTap;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +27,12 @@ class ButtonWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           child: Center(
-            child: Text(
-              text,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+            child: isLoading
+                ? const CircularProgressIndicator(color: Colors.black,)
+                : Text(
+                    text,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
           ),
         ),
       ),

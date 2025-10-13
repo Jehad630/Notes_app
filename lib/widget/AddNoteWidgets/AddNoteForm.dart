@@ -43,7 +43,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
           ),
           SizedBox(height: 120),
-          ButtonWidget(
+          CustomButtonWidget(
+            isLoading: true,
             text: "Add Note",
             color: Color(0xffB12E65),
             onTap: () {

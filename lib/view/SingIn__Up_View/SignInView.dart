@@ -48,7 +48,7 @@ class _SignInViewState extends State<SignInView> {
             },
           ),
           SizedBox(height: 20),
-          ButtonWidget(
+          CustomButtonWidget(
             color: Color(0xFF4D5A68),
             text: "Sign in",
             onTap: () async {
