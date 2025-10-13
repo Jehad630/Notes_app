@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:new_notes_app/cubits/cubit/notes_cubit.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
-import 'package:new_notes_app/widget/AddNoteForm.dart';
+import 'package:new_notes_app/widget/AddNoteWidgets/AddNoteForm.dart';
 
 class AddNoteWidet extends StatelessWidget {
   const AddNoteWidet({super.key});

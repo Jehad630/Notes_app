@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_notes_app/cubits/cubit/notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
-import 'package:new_notes_app/widget/ButtonWidget.dart';
-import 'package:new_notes_app/widget/CustomTextfield.dart';
+import 'package:new_notes_app/widget/CustomTextFields&Butttong/ButtonWidget.dart';
+import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfield.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});

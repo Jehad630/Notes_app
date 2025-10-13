@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/NotesListView.dart';
-import 'package:new_notes_app/view/SignInView.dart';
+import 'package:new_notes_app/view/SingIn__Up_View/SignInView.dart';
 
 
 class NotesViewBody extends StatelessWidget {
