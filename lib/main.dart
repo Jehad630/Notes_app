@@ -6,6 +6,7 @@ import 'package:new_notes_app/cubits/cubit/notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/services/constants.dart';
 import 'package:new_notes_app/services/firebase_options.dart';
+import 'package:new_notes_app/simple_bloc_observer.dart';
 import 'package:new_notes_app/view/Notes_view.dart';
 import 'package:new_notes_app/view/SignUpView.dart';
 import 'package:new_notes_app/view/SignInView.dart';
@@ -17,6 +18,9 @@ void main() async {
 
   //Hive initialization
   await Hive.initFlutter();
+
+  Bloc.observer = SimpleBlocObserver();
+
   // making object box
   await Hive.openBox(kNotesBox);
   //the way to storage the data using the genrated adapter for the model 
