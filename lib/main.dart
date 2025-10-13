@@ -7,7 +7,7 @@ import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/services/constants.dart';
 import 'package:new_notes_app/services/firebase_options.dart';
 import 'package:new_notes_app/services/simple_bloc_observer.dart';
-import 'package:new_notes_app/view/Notes_view.dart';
+import 'package:new_notes_app/view/Notes_View/Notes_view.dart';
 import 'package:new_notes_app/view/SingIn__Up_View/SignUpView.dart';
 import 'package:new_notes_app/view/SingIn__Up_View/SignInView.dart';
 
@@ -39,7 +39,7 @@ class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => NotesCubit())],
+      providers: [BlocProvider(create: (context) => AddNotesCubit())],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),

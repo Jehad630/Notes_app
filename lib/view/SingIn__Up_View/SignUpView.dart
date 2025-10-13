@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
-import 'package:new_notes_app/view/Notes_view.dart';
+import 'package:new_notes_app/view/Notes_View/Notes_view.dart';
 import 'package:new_notes_app/view/SingIn__Up_View/SignInView.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/ButtonWidget.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfieldSign.dart';
