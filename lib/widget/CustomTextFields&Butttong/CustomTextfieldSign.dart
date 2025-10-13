@@ -6,24 +6,22 @@ class CustomTextfieldSign extends StatelessWidget {
     required this.hint,
     required this.obscureText,
     this.onChanged,
-    
   });
 
   final String hint;
   final bool obscureText;
   Function(String)? onChanged;
-  
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
-        
         validator: (data) {
           if (data!.isEmpty) {
             return "filed is requierd";
           }
+          return null;
         },
         onChanged: onChanged,
         obscureText: obscureText,

@@ -28,7 +28,7 @@ class CustomButtonWidget extends StatelessWidget {
           ),
           child: Center(
             child: isLoading
-                ? const CircularProgressIndicator(color: Colors.black,)
+                ? const CircularProgressIndicator(color: Colors.black)
                 : Text(
                     text,
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
