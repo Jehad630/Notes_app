@@ -2,18 +2,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/Notes_View/Notes_view.dart';
-import 'package:new_notes_app/view/SingIn__Up_View/SignInView.dart';
+import 'package:new_notes_app/view/Sing_In_Up_View/SignUpView.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/ButtonWidget.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfieldSign.dart';
 
-class SignUpView extends StatefulWidget {
-  const SignUpView({super.key});
-  final String id = "SignUpView";
+class SignInView extends StatefulWidget {
+  const SignInView({super.key});
+  final String id = "SignInView";
   @override
-  State<SignUpView> createState() => _SigninviewState();
+  State<SignInView> createState() => _SignInViewState();
 }
 
-class _SigninviewState extends State<SignUpView> {
+class _SignInViewState extends State<SignInView> {
   String? email, password;
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,13 @@ class _SigninviewState extends State<SignUpView> {
           Image.asset("assets/notes.png", height: 150, width: 200),
           SizedBox(height: 20),
           Text(
-            "Notes App   ",
+            "Notes App",
             style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 70),
           Text(
-            "  Sign Up",
+            "  Sign in",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
           CustomTextfieldSign(
@@ -50,19 +50,19 @@ class _SigninviewState extends State<SignUpView> {
           SizedBox(height: 20),
           CustomButtonWidget(
             color: Color(0xFF4D5A68),
-            text: "Sign Up",
+            text: "Sign in",
             onTap: () async {
               try {
-                await signUpUser();
-                ShowSnackBar(context, "Account created successfully! ");
+                signIn();
+                ShowSnackBar(context, "Login Successful");
                 Navigator.pushNamed(context, NotesView().id, arguments: email);
               } on FirebaseAuthException catch (e) {
-                if (e.code == 'weak-password') {
-                  ShowSnackBar(context, "The password provided is too weak.");
-                } else if (e.code == 'email-already-in-use') {
+                if (e.code == 'user-not-found') {
+                  ShowSnackBar(context, "No user found for that email.");
+                } else if (e.code == 'wrong-password') {
                   ShowSnackBar(
                     context,
-                    "The account already exists for that email.",
+                    "Wrong password provided for that user.",
                   );
                 }
               } catch (e) {
@@ -74,13 +74,13 @@ class _SigninviewState extends State<SignUpView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("have an account?"),
+              Text("Don't have an account?"),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, SignInView().id);
+                  Navigator.pushNamed(context, SignUpView().id);
                 },
                 child: Text(
-                  "Sign in",
+                  "Sign up",
                   style: TextStyle(color: Color(0xFFFFCA42), fontSize: 16),
                 ),
               ),
@@ -91,8 +91,8 @@ class _SigninviewState extends State<SignUpView> {
     );
   }
 
-  Future<void> signUpUser() async {
+  Future<void> signIn() async {
     await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email!, password: password!);
+        .signInWithEmailAndPassword(email: email!, password: password!);
   }
 }
