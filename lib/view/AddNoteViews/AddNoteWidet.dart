@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
-import 'package:new_notes_app/widget/AddNoteWidgets/AddNoteForm.dart';
+import 'package:new_notes_app/view/AddNoteViews/AddNoteForm.dart';
 
 class AddNoteWidet extends StatelessWidget {
   const AddNoteWidet({super.key});
