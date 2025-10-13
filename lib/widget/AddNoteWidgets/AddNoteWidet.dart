@@ -16,15 +16,19 @@ class AddNoteWidet extends StatelessWidget {
         listener: (context, state) {
           if (state is NotesFailure) {
             ShowSnackBar(context, "failed to add note ${state.errMessage}");
-          } else if (state is NotesSuccess) {
+          }
+          if (state is NotesSuccess) {
             Navigator.pop(context);
           }
         },
         builder: (context, state) {
-          return ModalProgressHUD(
-            inAsyncCall: state is NotesLoading ? true : false,
+          // absorb pointer to prevent multiple taps when loading
+          return AbsorbPointer(
+            // if it loading will be true and the user can't interact with the form
+            // if it not loading will be false and the user can interact with the form
+            absorbing: state is NotesLoading ? true : false,
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12.0),
+              padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 12),
               child: SingleChildScrollView(child: const AddNoteForm()),
             ),
           );
