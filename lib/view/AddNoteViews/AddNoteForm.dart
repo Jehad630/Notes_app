@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:new_notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
-import 'package:new_notes_app/widget/ColorsWidget/Colors_ListView.dart';
+import 'package:new_notes_app/widget/Colors/Colors_ListView.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/ButtonWidget.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfield.dart';
 
@@ -69,10 +69,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       color: Color(0xffB12E65).value,
                     );
                     BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
-                  }  /*else {
+                  }  else {
                     /*autovalidateMode = AutovalidateMode.always;
                     setState(() {});*/
-                  }*/
+                  }
                 },
               );
             },
