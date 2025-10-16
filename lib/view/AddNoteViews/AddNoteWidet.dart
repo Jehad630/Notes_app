@@ -18,6 +18,10 @@ class AddNoteWidet extends StatelessWidget {
           }
           if (state is AddNotesSuccess) {
             Navigator.pop(context);
+            ShowSnackBar(
+                    context,
+                    "the note has been added successfully",
+                  );
           }
         },
         builder: (context, state) {

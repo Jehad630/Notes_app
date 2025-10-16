@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:new_notes_app/model/note_model.dart';
+import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/EditNotesView/EditNoteView.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key, required this.note});
- 
+
   final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return EditNoteView();
-        }));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return EditNoteView();
+            },
+          ),
+        );
       },
       child: Container(
         padding: EdgeInsets.only(top: 24, bottom: 24),
@@ -33,18 +39,28 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               subtitle: Padding(
-                padding: const EdgeInsets.only(top: 16.0,bottom: 16),
+                padding: const EdgeInsets.only(top: 16.0, bottom: 16),
                 child: Text(
                   note.content,
-                  style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.8),
+                    fontSize: 18,
+                  ),
                 ),
               ),
+              //deleting button
               trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.delete, color: Colors.black,size: 32,),
+                onPressed: () {
+                  note.delete();
+                  ShowSnackBar(
+                    context,
+                    "the note has been deleted successfully",
+                  );
+                },
+                icon: Icon(Icons.delete, color: Colors.black, size: 32),
               ),
             ),
-      
+
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: Text(
