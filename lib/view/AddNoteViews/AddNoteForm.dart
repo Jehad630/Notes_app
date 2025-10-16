@@ -51,29 +51,32 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(height: 20),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
-              return CustomButtonWidget(
-                isLoading: state is AddNotesLoading ? true : false,
-                text: "Add Note",
-                color: const Color(0xffB12E65),
-                onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-
-                    var formatedDate = DateFormat(
-                      'dd/MM/yyyy',
-                    ).format(DateTime.now());
-                    var noteModel = NoteModel(
-                      title: title!,
-                      subtitle: subtitle!,
-                      date: formatedDate,
-                      color: const Color(0xffB12E65).value,
-                    );
-                    BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
-                  }  else {
-                    /*autovalidateMode = AutovalidateMode.always;
-                    setState(() {});*/
-                  }
-                },
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: CustomButtonWidget(
+                  isLoading: state is AddNotesLoading ? true : false,
+                  text: "Add Note",
+                  color: const Color(0xffB12E65),
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                
+                      var formatedDate = DateFormat(
+                        'dd/MM/yyyy',
+                      ).format(DateTime.now());
+                      var noteModel = NoteModel(
+                        title: title!,
+                        subtitle: subtitle!,
+                        date: formatedDate,
+                        color: const Color(0xffB12E65).value,
+                      );
+                      BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
+                    }  else {
+                      autovalidateMode = AutovalidateMode.always;
+                      setState(() {});
+                    }
+                  },
+                ),
               );
             },
           ),

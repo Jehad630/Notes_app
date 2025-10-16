@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
+import 'package:new_notes_app/services/constants.dart';
 import 'package:new_notes_app/widget/Colors/Colors_ListView.dart';
+import 'package:new_notes_app/widget/Colors/EditNoteColorsList.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfield.dart';
 
 class EditNoteViewBody extends StatefulWidget {
@@ -50,7 +52,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               content = value;
             },
           ),
-          const ColorListView(),
+          EditNoteColorsList(note: widget.note),
         ],
       ),
     );
