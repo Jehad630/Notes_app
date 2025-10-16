@@ -28,7 +28,8 @@ void main() async {
   Hive.registerAdapter(NoteModelAdapter()); // should be before open box
 
   // making object box
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<NoteModel>(kNotesBox);
+
 
   runApp(const NotesApp());
 }
