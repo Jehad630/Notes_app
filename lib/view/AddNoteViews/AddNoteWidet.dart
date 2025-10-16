@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
+import 'package:new_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/AddNoteViews/AddNoteForm.dart';
 
@@ -17,6 +18,7 @@ class AddNoteWidet extends StatelessWidget {
             ShowSnackBar(context, "failed to add note ${state.errMessage}");
           }
           if (state is AddNotesSuccess) {
+            BlocProvider.of<NotesCubit>(context).fetchAllNotes();
             Navigator.pop(context);
             ShowSnackBar(context, "the note has been added successfully");
           }
