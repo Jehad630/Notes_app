@@ -6,9 +6,9 @@ part 'note_model.g.dart';
 class NoteModel extends HiveObject {
   
   @HiveField(0)
-  final String title;
+   String title;
   @HiveField(1)
-  final String content;
+   String subtitle;
 
   // in hive we can not save a object so as color and date we will save it as int and string
   @HiveField(2)
@@ -18,7 +18,7 @@ class NoteModel extends HiveObject {
 
   NoteModel({
     required this.title,
-    required this.content,
+    required this.subtitle,
     required this.date,
     required this.color,
   });

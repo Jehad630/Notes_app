@@ -59,7 +59,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     ).format(currentDate);
                     var noteModel = NoteModel(
                       title: title!,
-                      content: subtitle!,
+                      subtitle: subtitle!,
                       date: formatedDate,
                       color: Color(0xffB12E65).value,
                     );
