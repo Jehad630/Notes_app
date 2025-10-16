@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:new_notes_app/cubits/add_note_cubit/add_notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
+import 'package:new_notes_app/widget/ColorsWidget/Colors_ListView.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/ButtonWidget.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfield.dart';
 
@@ -43,7 +44,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subtitle = value;
             },
           ),
-          SizedBox(height: 120),
+          SizedBox(height: 20),
+
+          const ColorListView(),
+
+          SizedBox(height: 20),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
               return CustomButtonWidget(
@@ -53,10 +58,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    var currentDate = DateTime.now();
+
                     var formatedDate = DateFormat(
-                      'dd/mm/yyyy',
-                    ).format(currentDate);
+                      'dd/MM/yyyy',
+                    ).format(DateTime.now());
                     var noteModel = NoteModel(
                       title: title!,
                       subtitle: subtitle!,
@@ -64,11 +69,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       color: Color(0xffB12E65).value,
                     );
                     BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
-                    print("title $title");
-                    print("subtitle $subtitle");
                   } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
+                    /*autovalidateMode = AutovalidateMode.always;
+                    setState(() {});*/
                   }
                 },
               );
