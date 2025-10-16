@@ -29,11 +29,11 @@ class ColorListView extends StatefulWidget {
 class _ColorListViewState extends State<ColorListView> {
   int currentIndex = 0;
   List<Color> colors = [
-    Color(0xffFFAF3E),
-    Color(0xffCAD4E4),
-    Color(0xffDD864D),
-    Color(0xffE9336D),
-    Color(0xffD36836),
+    const Color(0xffFFAF3E),
+    const Color(0xffCAD4E4),
+    const Color(0xffDD864D),
+    const Color(0xffE9336D),
+    const Color(0xffD36836),
   ];
   @override
   Widget build(BuildContext context) {

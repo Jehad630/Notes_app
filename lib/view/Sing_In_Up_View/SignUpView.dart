@@ -20,16 +20,16 @@ class _SigninviewState extends State<SignUpView> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           Image.asset("assets/notes.png", height: 150, width: 200),
-          SizedBox(height: 20),
-          Text(
+          const SizedBox(height: 20),
+          const Text(
             "Notes App   ",
             style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 70),
-          Text(
+          const SizedBox(height: 70),
+          const Text(
             "  Sign Up",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
@@ -47,15 +47,15 @@ class _SigninviewState extends State<SignUpView> {
               password = data;
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           CustomButtonWidget(
-            color: Color(0xFF4D5A68),
+            color: const Color(0xFF4D5A68),
             text: "Sign Up",
             onTap: () async {
               try {
                 await signUpUser();
                 ShowSnackBar(context, "Account created successfully! ");
-                Navigator.pushNamed(context, NotesView().id, arguments: email);
+                Navigator.pushNamed(context, const NotesView().id, arguments: email);
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'weak-password') {
                   ShowSnackBar(context, "The password provided is too weak.");
@@ -74,12 +74,12 @@ class _SigninviewState extends State<SignUpView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("have an account?"),
+              const Text("have an account?"),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, SignInView().id);
+                  Navigator.pushNamed(context, const SignInView().id);
                 },
-                child: Text(
+                child: const Text(
                   "Sign in",
                   style: TextStyle(color: Color(0xFFFFCA42), fontSize: 16),
                 ),

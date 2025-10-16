@@ -26,7 +26,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          Text(
+          const Text(
             "Note",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -44,17 +44,17 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subtitle = value;
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
 
           const ColorListView(),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
               return CustomButtonWidget(
                 isLoading: state is AddNotesLoading ? true : false,
                 text: "Add Note",
-                color: Color(0xffB12E65),
+                color: const Color(0xffB12E65),
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
@@ -66,7 +66,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       title: title!,
                       subtitle: subtitle!,
                       date: formatedDate,
-                      color: Color(0xffB12E65).value,
+                      color: const Color(0xffB12E65).value,
                     );
                     BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
                   }  else {

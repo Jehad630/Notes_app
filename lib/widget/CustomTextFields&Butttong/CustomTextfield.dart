@@ -31,22 +31,22 @@ class CustomTextfield extends StatelessWidget {
         onSaved: onSaved,
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: TextStyle(fontWeight: FontWeight.bold),
+          hintStyle: const TextStyle(fontWeight: FontWeight.bold),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Color(0xFFFFCA42), width: 3),
+            borderSide: const BorderSide(color: Color(0xFFFFCA42), width: 3),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Color(0xFFD36836), width: 3),
+            borderSide: const BorderSide(color: Color(0xFFD36836), width: 3),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.red, width: 3),
+            borderSide: const BorderSide(color: Colors.red, width: 3),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Color(0xFFB12E65), width: 3),
+            borderSide: const BorderSide(color: Color(0xFFB12E65), width: 3),
           ),
         ),
       ),

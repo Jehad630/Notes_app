@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
+import 'package:new_notes_app/widget/Colors/Colors_ListView.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfield.dart';
 
 class EditNoteViewBody extends StatefulWidget {
@@ -19,18 +20,18 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit Note"),
+        title: const Text("Edit Note"),
         actions: [
           IconButton(
             onPressed: () {
-              widget.note.title =title ?? widget.note.title;
-              widget.note.subtitle =content ?? widget.note.subtitle;  
+              widget.note.title = title ?? widget.note.title;
+              widget.note.subtitle = content ?? widget.note.subtitle;
               widget.note.save();
               BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               Navigator.pop(context);
               ShowSnackBar(context, 'noete edited successfully');
             },
-            icon: Icon(Icons.check, size: 32),
+            icon: const Icon(Icons.check, size: 32),
           ),
         ],
       ),
@@ -49,6 +50,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               content = value;
             },
           ),
+          const ColorListView(),
         ],
       ),
     );

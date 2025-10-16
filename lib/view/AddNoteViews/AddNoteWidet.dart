@@ -37,7 +37,7 @@ class AddNoteWidet extends StatelessWidget {
                 top: 16,
                 bottom: MediaQuery.of(context).viewInsets.bottom,
               ),
-              child: SingleChildScrollView(child: const AddNoteForm()),
+              child: const SingleChildScrollView(child: AddNoteForm()),
             ),
           );
         },

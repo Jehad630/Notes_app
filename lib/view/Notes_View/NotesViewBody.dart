@@ -23,24 +23,24 @@ class _NotesViewBodyState extends State<NotesViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Notes App"),
+        title: const Text("Notes App"),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.search),
-            hoverColor: Color(0xffCAD4E4),
+            icon: const Icon(Icons.search),
+            hoverColor: const Color(0xffCAD4E4),
           ),
           IconButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, SignInView().id);
+              Navigator.pushNamed(context, const SignInView().id);
               ShowSnackBar(context, "Logged out successfully");
             },
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
           ),
         ],
       ),
-      body: Column(children: [Expanded(child: NotesListView())]),
+      body: const Column(children: [Expanded(child: NotesListView())]),
     );
   }
 }

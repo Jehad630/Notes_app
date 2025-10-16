@@ -20,16 +20,16 @@ class _SignInViewState extends State<SignInView> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           Image.asset("assets/notes.png", height: 150, width: 200),
-          SizedBox(height: 20),
-          Text(
+          const SizedBox(height: 20),
+          const Text(
             "Notes App",
             style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 70),
-          Text(
+          const SizedBox(height: 70),
+          const Text(
             "  Sign in",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
@@ -47,15 +47,15 @@ class _SignInViewState extends State<SignInView> {
               password = data;
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           CustomButtonWidget(
-            color: Color(0xFF4D5A68),
+            color: const Color(0xFF4D5A68),
             text: "Sign in",
             onTap: () async {
               try {
                 signIn();
                 ShowSnackBar(context, "Login Successful");
-                Navigator.pushNamed(context, NotesView().id, arguments: email);
+                Navigator.pushNamed(context, const NotesView().id, arguments: email);
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'user-not-found') {
                   ShowSnackBar(context, "No user found for that email.");
@@ -74,12 +74,12 @@ class _SignInViewState extends State<SignInView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Don't have an account?"),
+              const Text("Don't have an account?"),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, SignUpView().id);
+                  Navigator.pushNamed(context, const SignUpView().id);
                 },
-                child: Text(
+                child: const Text(
                   "Sign up",
                   style: TextStyle(color: Color(0xFFFFCA42), fontSize: 16),
                 ),

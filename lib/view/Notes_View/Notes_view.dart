@@ -11,7 +11,7 @@ class NotesView extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xffB12E65),
+        backgroundColor: const Color(0xffB12E65),
         foregroundColor: Colors.black,
         onPressed: () {
           showModalBottomSheet(
@@ -26,11 +26,11 @@ class NotesView extends StatelessWidget {
             ),
             context: context,
             builder: (context) {
-              return AddNoteWidet();
+              return const AddNoteWidet();
             },
           );
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: const NotesViewBody(),
     );

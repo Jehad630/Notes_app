@@ -45,11 +45,11 @@ class NotesApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
 
-        initialRoute: NotesView().id,
+        initialRoute: const NotesView().id,
         routes: {
-          NotesView().id: (context) => const NotesView(),
-          SignInView().id: (context) => const SignInView(),
-          SignUpView().id: (context) => const SignUpView(),
+          const NotesView().id: (context) => const NotesView(),
+          const SignInView().id: (context) => const SignInView(),
+          const SignUpView().id: (context) => const SignUpView(),
         },
       ),
     );
