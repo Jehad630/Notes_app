@@ -6,34 +6,41 @@ import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/Notes_View/NotesListView.dart';
 import 'package:new_notes_app/view/Sing_In_Up_View/SignInView.dart';
 
-class NotesViewBody extends StatelessWidget {
+class NotesViewBody extends StatefulWidget {
   const NotesViewBody({super.key});
-  final String id = "NotesViewBody";
+
+  @override
+  State<NotesViewBody> createState() => _NotesViewBodyState();
+}
+
+class _NotesViewBodyState extends State<NotesViewBody> {
+  @override
+  void initState() {
+   BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Notes App"),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.search),
-              hoverColor: Color(0xffCAD4E4),
-            ),
-            IconButton(
-              onPressed: () async {
-                await FirebaseAuth.instance.signOut();
-                Navigator.pushNamed(context, SignInView().id);
-                ShowSnackBar(context, "Logged out successfully");
-              },
-              icon: Icon(Icons.logout),
-            ),
-          ],
-        ),
-        body: Column(children: [Expanded(child: NotesListView())]),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Notes App"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.search),
+            hoverColor: Color(0xffCAD4E4),
+          ),
+          IconButton(
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+              Navigator.pushNamed(context, SignInView().id);
+              ShowSnackBar(context, "Logged out successfully");
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
       ),
+      body: Column(children: [Expanded(child: NotesListView())]),
     );
   }
 }
