@@ -33,7 +33,7 @@ class _NotesViewBodyState extends State<NotesViewBody> {
           IconButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, const SignInView().id);
+              Navigator.pushNamed(context,  SignInView().id);
               ShowSnackBar(context, "Logged out successfully");
             },
             icon: const Icon(Icons.logout),

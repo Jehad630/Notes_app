@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:new_notes_app/cubits/cubit/login_cubit.dart';
+import 'package:new_notes_app/cubits/cubit/register_cubit.dart';
 import 'package:new_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/services/constants.dart';
@@ -30,7 +32,6 @@ void main() async {
   // making object box
   await Hive.openBox<NoteModel>(kNotesBox);
 
-
   runApp(const NotesApp());
 }
 
@@ -39,17 +40,21 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<NotesCubit>(create: (context) => NotesCubit()),
+        BlocProvider<LoginCubit>(create: (context) => LoginCubit()),
+        BlocProvider<RegisterCubit>(create: (context) => RegisterCubit(),)
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
 
-        initialRoute: const SignInView().id,
+        initialRoute: SignInView().id,
         routes: {
           const NotesView().id: (context) => const NotesView(),
-          const SignInView().id: (context) => const SignInView(),
-          const SignUpView().id: (context) => const SignUpView(),
+          SignInView().id: (context) => SignInView(),
+          SignUpView().id: (context) => SignUpView(),
         },
       ),
     );
