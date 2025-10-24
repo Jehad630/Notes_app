@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/Notes_View/NotesListView.dart';
-import 'package:new_notes_app/view/Sing_In_Up_View/SignInView.dart';
+import 'package:new_notes_app/view/Sign_In_Up_View/SignInView.dart';
 
 class NotesViewBody extends StatefulWidget {
   const NotesViewBody({super.key});

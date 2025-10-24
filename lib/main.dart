@@ -9,8 +9,8 @@ import 'package:new_notes_app/services/constants.dart';
 import 'package:new_notes_app/services/firebase_options.dart';
 import 'package:new_notes_app/services/simple_bloc_observer.dart';
 import 'package:new_notes_app/view/Notes_View/Notes_view.dart';
-import 'package:new_notes_app/view/Sing_In_Up_View/SignUpView.dart';
-import 'package:new_notes_app/view/Sing_In_Up_View/SignInView.dart';
+import 'package:new_notes_app/view/Sign_In_Up_View/SignUpView.dart';
+import 'package:new_notes_app/view/Sign_In_Up_View/SignInView.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

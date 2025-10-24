@@ -5,7 +5,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:new_notes_app/cubits/cubit/Auth_cubit/auth_cubit.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/Notes_View/Notes_view.dart';
-import 'package:new_notes_app/view/Sing_In_Up_View/SignUpView.dart';
+import 'package:new_notes_app/view/Sign_In_Up_View/SignUpView.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/ButtonWidget.dart';
 import 'package:new_notes_app/widget/CustomTextFields&Butttong/CustomTextfieldSign.dart';
 
