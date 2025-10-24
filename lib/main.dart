@@ -2,8 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:new_notes_app/cubits/cubit/login_cubit.dart';
-import 'package:new_notes_app/cubits/cubit/register_cubit.dart';
+import 'package:new_notes_app/cubits/cubit/Auth_cubit/auth_cubit.dart';
 import 'package:new_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:new_notes_app/model/note_model.dart';
 import 'package:new_notes_app/services/constants.dart';
@@ -43,8 +42,7 @@ class NotesApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<NotesCubit>(create: (context) => NotesCubit()),
-        BlocProvider<LoginCubit>(create: (context) => LoginCubit()),
-        BlocProvider<RegisterCubit>(create: (context) => RegisterCubit(),)
+        BlocProvider<AuthCubit>(create: (context) => AuthCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

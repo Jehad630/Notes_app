@@ -1,8 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:new_notes_app/cubits/cubit/register_cubit.dart';
+import 'package:new_notes_app/cubits/cubit/Auth_cubit/auth_cubit.dart';
 import 'package:new_notes_app/services/ShowSnackBar.dart';
 import 'package:new_notes_app/view/Notes_View/Notes_view.dart';
 import 'package:new_notes_app/view/Sing_In_Up_View/SignInView.dart';
@@ -19,7 +18,7 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is RegisterLoading) {
           isLoading = true;
@@ -72,7 +71,7 @@ class SignUpView extends StatelessWidget {
                     text: "Sign Up",
                     onTap: () async {
                       if (formKey.currentState!.validate()) {
-                        BlocProvider.of<RegisterCubit>(
+                        BlocProvider.of<AuthCubit>(
                           context,
                         ).signUpUser(email: email!, password: password!);
                       }
